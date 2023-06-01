@@ -1,7 +1,7 @@
 from math import *
 
 
-def calculate_expression(expression: str, start: float, end: float, step: int) -> list:
+def calculate_expression(expression: str, start: int, end: int, step: int) -> list:
     """
     Обчислює переданий вираз з невідомою змінною x за допомогою табулювання функції на певному проміжку.
 
@@ -9,9 +9,9 @@ def calculate_expression(expression: str, start: float, end: float, step: int) -
     -----------
         expression (str): вираз
 
-        start (float): початок проміжку табулювання
+        start (int): початок проміжку табулювання
 
-        end (float): кінець проміжку табулювання
+        end (int): кінець проміжку табулювання
 
         step (int): крок табулювання
 
@@ -28,11 +28,9 @@ def calculate_expression(expression: str, start: float, end: float, step: int) -
     [3, 7, 11, 15, 19, 23]
     """
     values = []  # Список значень змінної x
-    x = start  # Присвоєння змінній x початкового значення
-    while x <= end:
+    for x in range(start, end + 1, step):
         result = eval(expression)  # Обчислюємо вираз
         values.append(round(result, 3))  # Додаємо результат до списку та округлюємо результат до 3 знаків після коми
-        x += step
 
     return values
 
